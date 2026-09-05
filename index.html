@@ -965,7 +965,7 @@
       function showProgram() {
         document.getElementById("detailContent").style.display = "none";
 
-        fetch("/programme")
+        fetch("programmes/fingerprint")
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("programText").value = data;
