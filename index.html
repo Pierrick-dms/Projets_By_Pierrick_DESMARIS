@@ -846,9 +846,11 @@
         <div class="window-body">
           <h2 id="detailName"></h2>
           <button class="project-bubble" onclick="showDetail()">Détail</button>
-          <button class="project-bubble" onclick="showProgram()">
-            Programme C++ (espressif)
+          <button class="project-bubble" onclick="showProgram('programmes/fingerprint_espressif)">
+            Programme C++ (Espressif)
           </button>
+          <button class="project-bubble" onclick="showProgram('programmes/ fingerprint_Arduino.cpp)">
+            Programme C++ (Arduino)
           <textarea id="programText" readonly style="display: none"></textarea>
           <div id="detailContent" style="display: none">
             <div class="field-block">
@@ -962,10 +964,10 @@
         document.getElementById("detailContent").style.display = "block";
       }
 
-      function showProgram() {
+      function showProgram(file) {
         document.getElementById("detailContent").style.display = "none";
 
-        fetch("programmes/fingerprint.cpp")
+        fetch("file")
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("programText").value = data;
