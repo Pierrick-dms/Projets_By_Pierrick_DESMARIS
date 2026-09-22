@@ -968,7 +968,7 @@
       function showProgram(file) {
         document.getElementById("detailContent").style.display = "none";
 
-        fetch("'file")
+        fetch("file")
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("programText").value = data;
