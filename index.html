@@ -939,8 +939,10 @@
                         <h3>${escapeHTML(p.name)}</h3>
                         <p>${escapeHTML(p.desc)}</p>
                     </div>
+                    <div style="display:flex; gap:6px; flex-shrink:0;">
                     <button class="del-btn" onclick="event.stopPropagation(); renameProject(${index})" style="margin-right:6px;">✎</button>
                     <button class="del-btn" onclick="event.stopPropagation(); deleteProject(${index})" aria-label="Supprimer">✕</button>
+                    </div>
                 </div>
                 `;
           listDiv.innerHTML += projectHTML;
