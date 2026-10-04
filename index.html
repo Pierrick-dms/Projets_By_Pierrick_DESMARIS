@@ -939,6 +939,7 @@
                         <h3>${escapeHTML(p.name)}</h3>
                         <p>${escapeHTML(p.desc)}</p>
                     </div>
+                    <button class="del-btn" onclick="event.stopPropagation(); renameProject(${index})" style="margin-right:6px;">✎</button>
                     <button class="del-btn" onclick="event.stopPropagation(); deleteProject(${index})" aria-label="Supprimer">✕</button>
                 </div>
                 `;
@@ -991,6 +992,14 @@
 
       function deleteProject(index) {
         projects.splice(index, 1);
+        localStorage.setItem("projects", JSON.stringify(projects));
+        renderProjects();
+      }
+
+      function renameProject(index) {
+        const newName = prompt("Nouveau nom du projet : ", projects[index].name);
+        if (newName === null || newName.trim() === "") return;
+        projects[index].name = newName.trim();
         localStorage.setItem("projects", JSON.stringify(projects));
         renderProjects();
       }
